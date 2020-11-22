@@ -14,6 +14,8 @@ import Payment from './components/payment/payment'
 import MyTrip from './components/trips/mytrips'
 import Profile from './components/user/Profile';
 import Navbar2 from './components/Homepage/Navbar-login';
+ import LoginButton from './components/Homepage/LoginButton'
+
 
 
 class App extends React.Component {
@@ -135,6 +137,7 @@ class App extends React.Component {
               render={(props) => <Trips userid={this.state.userid} testtrips={this.state.testtrips}   trip={this.state.thetrip} />}
             />
             <Route path="/sign-up" exact component={Signup} />
+            <Route path="/login" exact component={Login} />
             <Route path="/user" exact render={(props) => <Profile userid={this.state.userid} />}
             />
             <Route path="/trip" exact component={Trip} />

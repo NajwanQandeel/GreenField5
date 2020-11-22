@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './A-Style.css';
 import { Button } from './Button';
+import {LoginButton}from './LoginButton';
 
 function Navbar() {
     //responsive nav bar functionality
@@ -48,8 +49,17 @@ function Navbar() {
                                 className='nav-links-mobile'
                                 onClick={closeMobileMenu}>Sign Up</Link>
                         </li>
+                        <li>
+                            <Link
+                                to='/Login'
+                                className='nav-links-mobile'
+                                onClick={closeMobileMenu}>Login</Link>
+                        </li>
                     </ul>
                     {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    <li>
+                    {button && <LoginButton buttonStyle='btn--outline'>LOG IN</LoginButton>}
+                    </li>
                 </div>
             </nav>
         </>
