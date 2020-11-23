@@ -6,7 +6,7 @@ class Cards extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-        
+
         }
     }
     componentDidMount() {
@@ -14,14 +14,14 @@ class Cards extends React.Component {
     }
 
     render() {
-        
+
         return (
             <div className='cards'>
                 <h1>New Featured Trips</h1>
                 <div className='cards__container'>
                     <div className="cards__wrapper">
                         <ul className="cards__items">
-                        {/* Display the three newest featured trip in the homepage */}
+                            {/* Display the three newest featured trip in the homepage */}
                             {this.props.testtrips.slice(0, 3).map((trip) =>
                                 <Carditem
                                     src={trip.image[0][0]}

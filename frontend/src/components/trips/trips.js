@@ -2,6 +2,7 @@ import React from "react";
 import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days'
+import AddFeedback from '../Feedback/addfeedback.js';
 class Trip extends React.Component {
 
     constructor(props) {
@@ -110,7 +111,9 @@ class Trip extends React.Component {
                                 }} />
                         </p>
                     </div></Link>
-
+                <div>
+                    <AddFeedback />
+                </div>
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>

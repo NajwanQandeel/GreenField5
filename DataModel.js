@@ -49,7 +49,7 @@ let paymentSchema = mongoose.Schema({
 let feedbackSchema = mongoose.Schema({
     userName: String,
     userMail: { type: String, unique: true },
-    feedback:String
+    feedback: String
 })
 
 
@@ -61,3 +61,4 @@ let feedback = mongoose.model("feedback", feedbackSchema);
 module.exports.users = users
 module.exports.payment = payment
 module.exports.feedback = feedback
+module.exports.trips = trips
