@@ -1,87 +1,148 @@
-import React from 'react'
-import './login.css';
-import $ from 'jquery'
+import React, { Component } from 'react';
+import Button from "@material-ui/core/Button";
+import FormControl from "@material-ui/core/FormControl";
+import { TextField, Typography } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import './LogIn.css'
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props)
+
+
+class Login extends Component {
+  constructor() {
+    super();
     this.state = {
-      email: '',
-      password: '',
+      userName: '',
+      userMail: '',
+      userPass: '',
+      token: ''
     }
-    this.handelchange = this.handelchange.bind(this)
-    this.LoginHandler = this.LoginHandler.bind(this)
+    this.changePassword = this.changePassword.bind(this);
+    this.changeEmail = this.changeEmail.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.changeState = this.changeState.bind(this);
   }
-  //to send req to server to check user data to login 
-  LoginHandler() {
-    var data = {
-      userPass: this.state.password,
-      userMail: this.state.email
-    }
-    $.ajax({
-      type: "POST",
-      url: "/login",
-      data: data,
-      success: (res) => {
-        //will send to homepage
-        console.log(this.props)
-        this.props.toggleuser()
-        window.location.href = "/"
-      },
-      error: function (error) {
-        if (error.status === 410) {
-          //alert('Empty data')
-          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> You have to enter your email</div>"
-        }
-        if (error.status === 404) {
-          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> Invaild Username</div>"
-          //alert('user not existed')
-          console.log(error.responseText)
-        }
-        if (error.status === 400) {
-          //alert('wrong password')
-          document.getElementById("logPass").innerHTML = "<div class='alert alert-danger' role='alert'> Wrong Password</div>"
-        }
+  changeState = () => {
+    this.setState({
+      login: !this.state.login
+    });
+  };
+
+  changePassword(e) {
+    this.setState({ userPass: e.target.value })
+  }
+
+  changeEmail(e) {
+    this.setState({ userMail: e.target.value })
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    fetch('http://localhost:4000/login', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
       }
     })
+
+      .then(response => response.json())
+      .then((data) => {
+        localStorage.setItem("jwt-auth", data.token)
+
+        console.log('Success:', data);
+        window.location.href = '/trips'
+      })
+
+      .catch(err => {
+        console.error(err);
+      });
   }
-  handelchange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
+  handleSubmit = (event) => {
+    event.preventDefault();
+    fetch('http://localhost:4000/sign-up', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-    console.log(this.props.hello)
+
+      .then(response => response.json())
+      .then((data) => {
+
+
+        console.log('Success:', data);
+        window.location.href = '/sign-up'
+      })
+
+      .catch(err => {
+        console.error(err);
+      });
   }
-  componentDidMount() {
-    document.documentElement.scrollTop = 0;
-  }
+
   render() {
     return (
-      <div className="test">
-        <div className="row">
-          <div id="signin" className="col-sm-4 left form-group">
-            <form action="#">
-              <br></br>
-              <br></br>
-              <h3 id="signuptitle">Do you have an account</h3>
-              <h3>sign in here</h3>
-              <div>
-                <label>Your Email</label>
-                <input type="email" className="form-control inputhover" name="email" placeholder="Email" onChange={this.handelchange} />
-              </div>
-              <div>
-                <label>Password</label>
-                <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="Password" />
-              </div>
-              <div style={{ "marginTop": '12px' }}>
-                <small id="logPass"></small>
-                <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
-                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Do not have an account</small>
-              </div>
-            </form>
-          </div>
+      <div >
+        <div>
+        
         </div>
-      </div>
-    )
+        <Typography component="h1" variant="h3" align="center" id="title"> Login</Typography><br />
+        <Box display="flex" justifyContent="center" alignItems="center" minHeight="40vh">
+
+          <form onSubmit={this.onSubmit} id="form">
+            <FormControl margin="normal" id="control" >
+              <TextField
+                required
+                id="email"
+                name="email"
+                type="email"
+                value={this.state.userMail}
+                onChange={this.changeEmail}
+                label="Email" variant="outlined"
+              />
+            </FormControl><br />
+            <FormControl margin="normal" >
+              <TextField
+                required
+                id="password"
+                name="password"
+                type="Password"
+                value={this.state.userPass}
+                onChange={this.changePassword}
+                label="Password" variant="outlined"
+              />
+            </FormControl><br /><br />
+
+            <Button id="btn"
+              // onClick={this.handleSubmit}
+              type="submit"
+              size="large"
+              variant="contained"
+              justifyContent="center"
+              onClick={this.changeState}
+
+
+            >
+              Login
+          </Button><br /><br />
+            <Typography id="title1"> If you don't have an account ?</Typography><br />
+            <Button id="btn1"
+              onClick={this.handleSubmit}
+              type="submit"
+              size="large"
+              variant="contained"
+              justifyContent="center"
+
+
+            >
+              Signup
+              </Button>
+          </form>
+
+        </Box>
+
+      </div >
+    );
   }
 }
 

@@ -1,23 +1,24 @@
-//Authntication and creating token using JWT
-const jwt = require('jsonwebtoken')
-function auth(req, res, next) {
-    //Get the token from the cookie's request
-    var t = Object.values(req.cookies)
-    const token = t[0]
-    if (!token) {
-        return res.status(401).send('You have to login first')
-    }
-    //If token exists check if it's varified or valid
-    try {
-        const verified = jwt.verify(token, process.env.TOKEN_SECRET)
-        req.user = verified
-        res.header('authToken', token)
-        next()
-    }
-    catch (err) {
-        res.status(400).send('invalid Token')
+const {User} = require('./DataModel').users;
+const jwt = require('jsonwebtoken');
+const secret = 'mysecretsshhh';
 
-    }
-}
+const auth = async (req, res, next) => {
+  const token = req.header('jwt-auth');
+  if (!token)
+    return res.status(401).json({ msg: 'No token, authorization denied' });
+
+  try {
+    // Verify token
+    const decoded = await jwt.verify(token, secret);
+    const user = await User.findOne({ _id: decoded.id })
+    console.log(user)
+    req.User = user;
+    next();
+  } catch (e) {
+    res.status(400).json({ msg: 'Token is not valid' });
+  }
+};
+
+
 
 module.exports = auth

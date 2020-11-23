@@ -1,36 +1,34 @@
 import React from "react";
+// import './addfeedback.css';
 
 
 class AddFeedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
-      Name: "",
-      Feedback: "",
-      Email: "",
+      userName: '',
+      feedback: ''
     };
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleSubmitForm = this.handleSubmitForm.bind(this)
+    this.changeUserName = this.changeUserName.bind(this);
+    this.changeFeedback = this.changeFeedback.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  changeUserName(e) {
+    this.setState({ userName: e.target.value })
   }
 
 
+ 
 
-  handleChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
-  };
-  handleSubmitForm = event => {
-    event.preventDefault();
-  };
+  changeFeedback(e) {
+    this.setState({ feedback: e.target.value })
+  }
 
 
-  handleClick = () => {
-    const info = {
-      Name: this.state.Name,
-      Email: this.state.Email,
-      Feedback: this.state.Feedback
-    }
+  onSubmit = (e) => {
+    e.preventDefault();
+
     fetch('http://localhost:4000/addfeedback', {
       method: 'POST',
       headers: {
@@ -48,9 +46,8 @@ class AddFeedback extends React.Component {
       });
 
     this.setState({
-      Name: '',
-      Email: '',
-      Feedback: ''
+      userName: '',
+      feedback: ''
     })
 
   }
@@ -61,39 +58,38 @@ class AddFeedback extends React.Component {
         <div className="name2">
           <h3>Give Feedback</h3>
         </div>
-        <form className="form" onSubmit={this.handleSubmitForm}>
+        <form className="form" onSubmit={this.onSubmit}>
           <div className="details">
             <div className="namedetails">
-              <h3>Your Name</h3>
+
               <input
                 className="inputborder"
                 placeholder="Enter Your Name Here"
                 type="text"
                 name="Name"
-                value={this.state.Name}
-                onChange={this.handleChange}
+                value={this.state.userName}
+                onChange={this.changeUserName}
               />
             </div>
-            <div className="namedetails">
+            {/* <div className="namedetails">
               <h3>Your Email</h3>
               <input
                 className="inputborder"
                 placeholder="Enter Your Email Here"
                 type="text"
                 name="Email"
-                value={this.state.Email}
-                onChange={this.handleChange}
+                value={this.state.userMail}
+                onChange={this.changeEmail}
               />
-            </div>
+            </div> */}
             <div className="namedetails">
-              <h3>Feedback</h3>
               <input
                 className="inputborder"
                 placeholder="Enter Your Feedback Here"
                 type="text"
                 name="Feedback"
-                value={this.state.Feedback}
-                onChange={this.handleChange}
+                value={this.state.feedback}
+                onChange={this.changeFeedback}
               />
             </div>
             <div className="submit">

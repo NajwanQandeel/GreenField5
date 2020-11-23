@@ -31,8 +31,13 @@ let tripsSchema = mongoose.Schema({
 let userSchema = mongoose.Schema({
     id: { type: Number, unique: true, sparse: true },
     userName: String,
-    userMail: String,
-    userPass: String,
+    userMail: { 
+        type: String, required: [true, 'Please enter your email']
+      },
+    userPass: {
+        type: String, required: [true, 'Please enter your password'],
+        minlength: [8, 'Minimum password length is 8 characters']
+    },
     userNum: String,
     trips: [String],
     userimage: String,
@@ -48,7 +53,6 @@ let paymentSchema = mongoose.Schema({
 
 let feedbackSchema = mongoose.Schema({
     userName: String,
-    userMail: { type: String, unique: true },
     feedback:String
 })
 
@@ -61,3 +65,4 @@ let feedback = mongoose.model("feedback", feedbackSchema);
 module.exports.users = users
 module.exports.payment = payment
 module.exports.feedback = feedback
+module.exports.trips=trips
