@@ -7,7 +7,7 @@ const tripsData = require('../Data/trips.json')
 
 //to get all trip information from data base
 exports.tripsList = (req, res) => {
-    trips.find({}, (err, trips) => {
+    trips.find({},(err, trips) => {
         if (err)
             res.send(err);
         res.json(trips);

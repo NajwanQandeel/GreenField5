@@ -1,7 +1,8 @@
 import React from "react";
 import './trips.css';
 import { Link } from 'react-router-dom';
-import Day from './days'
+import Day from './days';
+import AddFeedBack from '../Feedback/addfeedback.js'
 class Trip extends React.Component {
 
     constructor(props) {
@@ -17,7 +18,7 @@ class Trip extends React.Component {
             maxnoPerTrip: 0
         }
     }
-//to get the one trip data from db and display it
+    //to get the one trip data from db and display it
     componentDidMount() {
         this.setState({
             thetrip: this.props.location.state.trip,
@@ -110,6 +111,10 @@ class Trip extends React.Component {
                                 }} />
                         </p>
                     </div></Link>
+                    <div>
+                        <AddFeedBack/>
+                    </div>
+
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>
