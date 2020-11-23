@@ -8,11 +8,12 @@
 /* Footer.css */
 .footer-container {
   /* background-color: #242424; */
-  background-color:red;
+  background-color:rgb(97, 24, 56);;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 70%;
   
 }
 
@@ -67,6 +68,8 @@
 
 .footer-link-wrapper {
   display: flex;
+  position: relative;
+  left: 20%;
 }
 
 .footer-link-items {

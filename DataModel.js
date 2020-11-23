@@ -52,6 +52,10 @@ let paymentSchema = mongoose.Schema({
 })
 
 let feedbackSchema = mongoose.Schema({
+    userMail:{
+        type:String,
+        unique:true
+    },
     userName: String,
     feedback:String
 })

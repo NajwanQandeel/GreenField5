@@ -1,4 +1,3 @@
-//requiring the feedback schema
 const UserModel = require('../DataModel').feedback
 
 
@@ -22,5 +21,4 @@ exports.addFeedback = async (req, res) => {
         })
     })
 }
-
 

@@ -14,9 +14,6 @@ import Payment from './components/payment/payment'
 import MyTrip from './components/trips/mytrips'
 import Profile from './components/user/Profile';
 import Navbar2 from './components/Homepage/Navbar-login';
- import LoginButton from './components/Homepage/LoginButton'
-
-// import AddFeedback from './components/Feedback/addfeedback';
 
 
 class App extends React.Component {
@@ -109,10 +106,10 @@ class App extends React.Component {
       />
     }
     else {
-      //to check if the user want to login will be directed to login form 
+          //to check if the user want to login will be directed to login form 
       comp = <Route
         path='/sign-up'
-        render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} />}
+        render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus}/>}
       />
     }
     //if there is token - display navbar2 (login in navbar)
@@ -120,7 +117,7 @@ class App extends React.Component {
       nav = <Navbar2></Navbar2>
     }
     else {
-      //display original navbar 
+     //display original navbar 
       nav = <Navbar></Navbar>
     }
     return (
@@ -131,11 +128,11 @@ class App extends React.Component {
             {comp}
             <Route
               path="/"
-              exact render={(props) => <Home userid={this.state.userid} testtrips={this.state.testtrips} trip={this.state.thetrip} />}
+              exact render={(props) => <Home userid={this.state.userid} testtrips={this.state.testtrips}  trip={this.state.thetrip} />}
             />
             <Route
               path="/trips"
-              render={(props) => <Trips userid={this.state.userid} testtrips={this.state.testtrips} trip={this.state.thetrip} />}
+              render={(props) => <Trips userid={this.state.userid} testtrips={this.state.testtrips}   trip={this.state.thetrip} />}
             />
             <Route path="/sign-up" exact component={Signup} />
             <Route path="/login" exact component={Login} />
@@ -144,9 +141,8 @@ class App extends React.Component {
             <Route path="/trip" exact component={Trip} />
             <Route path="/mytrip" exact component={MyTrip} />
             <Route path="/payment" exact component={Payment} />
-            {/* <Route path="/addfeedback" exact component={AddFeedback} /> */}
           </Switch>
-          <Footer />
+         <Footer/>
         </Router>
       </>
     )
