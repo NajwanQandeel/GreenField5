@@ -1,0 +1,1 @@
+const FavoriteModel = require('../DataModel').Favorite

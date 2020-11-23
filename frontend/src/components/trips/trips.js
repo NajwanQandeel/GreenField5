@@ -2,6 +2,7 @@ import React from "react";
 import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days'
+import Favorite from "../Favorite/favorite"
 class Trip extends React.Component {
 
     constructor(props) {
@@ -69,6 +70,7 @@ class Trip extends React.Component {
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3409/3409565.svg' alt='tripGuide'></img>
                         <p>{this.state.thetrip.tripGuide}</p>
                     </div>
+                    <div><Favorite /></div>
                 </div>
                 <br></br>
                 <div>
@@ -79,6 +81,7 @@ class Trip extends React.Component {
                             dayinfo: this.state.thetrip.discription[value],
                             imgs: this.state.thetrip.image[parseInt(value) - 1]
                         }
+                        console.log(props)
                         return (<div><Day {...props}></Day>
                             <br></br></div>)
                     }
@@ -110,6 +113,8 @@ class Trip extends React.Component {
                                 }} />
                         </p>
                     </div></Link>
+                    
+
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>

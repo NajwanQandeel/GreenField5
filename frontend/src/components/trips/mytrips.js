@@ -1,6 +1,7 @@
 import React from "react";
 import './trips.css';
 import Day from './days'
+
 class Trip extends React.Component {
 
     constructor(props) {

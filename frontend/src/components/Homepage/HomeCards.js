@@ -1,7 +1,6 @@
 import React from 'react';
 import Carditem from './Carditem';
 import './A-Style.css'
-
 class Cards extends React.Component {
     constructor(props) {
         super(props)
@@ -22,8 +21,10 @@ class Cards extends React.Component {
                     <div className="cards__wrapper">
                         <ul className="cards__items">
                         {/* Display the three newest featured trip in the homepage */}
-                            {this.props.testtrips.slice(0, 3).map((trip) =>
+                           {
+                            this.props.testtrips.slice(0, 3).map((trip) =>
                                 <Carditem
+                                
                                     src={trip.image[0][0]}
                                     label={trip.name}
                                     text={trip.explore}
@@ -31,7 +32,10 @@ class Cards extends React.Component {
                                     trip={trip}
                                     userid={this.props.userid}
                                 />)}
+                                
+                                
                         </ul>
+                              
                     </div>
                 </div>
             </div>
