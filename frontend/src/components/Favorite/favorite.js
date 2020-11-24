@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
 function Favorite(props) {
     const classes = useStyles();
     useEffect(()=>{
-        // const variables={
-        //     userFrom:,
-        //     tripId:
-        // }
+        const variables={
+            userFrom:props.userid,
+            tripId:props.location.state.trip._id
+        }
     })
-    fetch('http://localhost:4000/addtofavorite', {
+    fetch('/addtofavorite', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
