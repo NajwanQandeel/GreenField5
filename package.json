@@ -22,5 +22,7 @@
     "mongoose": "^5.10.13",
     "nodemon": "^2.0.6",
     "react-slideshow-image": "^3.3.1"
+
   }
+  
 }
