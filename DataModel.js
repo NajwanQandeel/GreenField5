@@ -17,6 +17,9 @@ db.once('open', function () {
 //Schemas
 let tripsSchema = mongoose.Schema({
     id: { type: Number, unique: true },
+    // feeds: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'feedback' }],
     image: [[String]],
     tripType: String,
     name: String,
@@ -77,6 +80,10 @@ module.exports.payment = payment
 module.exports.trips = trips
 module.exports.Favorite = Favorite
 let feedbackSchema = mongoose.Schema({
+    tripId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'trips'
+    },
     userMail:{
         type:String,
         unique:true

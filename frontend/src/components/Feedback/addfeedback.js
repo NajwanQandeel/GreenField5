@@ -1,5 +1,6 @@
 import React from "react";
 import './addfeedback.css';
+// import Trip from '../trips/trips'
 
 
 class AddFeedback extends React.Component {
@@ -8,13 +9,43 @@ class AddFeedback extends React.Component {
     this.state = {
       userMail:'',
       userName: '',
-      feedback: ''
+      feedback: '',
+      tripId:''
     };
+    // this.changeTripeId = this.changeTripeId.bind(this)
     this.changeUserName = this.changeUserName.bind(this);
     this.changeFeedback = this.changeFeedback.bind(this);
     this.changeUserMail = this.changeUserMail.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  componentDidMount() {
+    //  console.log( this.props.location.state.trip)
+    //  const tripId = this.props.location.state.trip._id
+    //  this.setState({ tripId})
+}
+// getTripId = () => {
+//   var tripId; 
+//   $.ajax({
+//     type: "GET",
+//     url: "/trip",
+//     success: (res) => {
+//       for (var i in res) {
+//         alltrips.push(res[i])
+//       }
+//       this.setState({
+//         testtrips: alltrips
+//       })
+//     },
+//     error: function (err) {
+//       console.error(err)
+//     }
+//   })
+// }
+
+  // changeTripeId(e) {
+  //   this.setState({ tripId:this.props.location.state.trip._id})
+  // }
 
   changeUserName(e) {
     this.setState({ userName: e.target.value })
@@ -34,7 +65,7 @@ class AddFeedback extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://localhost:4000/addfeedback', {
+    fetch('/addfeedback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +84,8 @@ class AddFeedback extends React.Component {
     this.setState({
       userMail:'',
       userName: '',
-      feedback: ''
+      feedback: '',
+      tripId:''
     })
 
   }

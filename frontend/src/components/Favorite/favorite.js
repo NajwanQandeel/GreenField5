@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
 function Favorite(props) {
     const classes = useStyles();
     useEffect(()=>{
-        const variables={
-            userFrom:props.userid,
-            tripId:props.location.state.trip._id
-        }
+        // const variables={
+        //     userFrom:props.userid,
+        //     tripId:props.location.state.trip._id
+        // }
     })
     fetch('/addtofavorite', {
         method: 'POST',
