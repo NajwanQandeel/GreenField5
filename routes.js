@@ -33,7 +33,8 @@ routers.post('/addfeedback', feedbackController.addFeedback)
 
 // get all feedback
 
-routers.get('/allFeedback', feedbackController.allFeedback)
+// routers.get('/allFeedback', feedbackController.allFeedback)
+// routers.post('FindAllFeedByIdOfTrip',feedbackController.FindAllFeedByIdOfTrip)
 
 
 module.exports = routers;

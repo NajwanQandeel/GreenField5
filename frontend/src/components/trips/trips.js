@@ -3,6 +3,7 @@ import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days';
 import AddFeedBack from '../Feedback/addfeedback.js'
+// import AllFeedback from '../Feedback/feedback.js'
 class Trip extends React.Component {
 
     constructor(props) {
@@ -28,6 +29,9 @@ class Trip extends React.Component {
         document.documentElement.scrollTop = 0;
     }
     render() {
+        // console.log("my console",this.props.location)
+        // console.log(this.props.location.state.trip._id)
+
         var today = new Date();
         let statedata = {}
         let pathname = '/trip'
@@ -38,10 +42,11 @@ class Trip extends React.Component {
                 statedata = {
                     tripid: this.props.location.state.trip._id,
                     userid: this.props.location.state.userid
+                   
                 }
             }
         }
-
+       
         return (
             <div >
                 <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
@@ -75,6 +80,7 @@ class Trip extends React.Component {
                 <div>
                     {Object.keys(this.state.thetrip.discription).map((value) => {
                         let props = {
+                           
                             key: value,
                             dayno: value,
                             dayinfo: this.state.thetrip.discription[value],
@@ -114,7 +120,9 @@ class Trip extends React.Component {
                     <div>
                         <AddFeedBack/>
                     </div>
-
+                    <div>
+                        {/* <AllFeedback/> */}
+                    </div>
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>
