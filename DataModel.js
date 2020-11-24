@@ -14,6 +14,9 @@ db.once('open', function () {
 //Schemas
 let tripsSchema = mongoose.Schema({
     id: { type: Number, unique: true },
+    // feeds: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'feedback' }],
     image: [[String]],
     tripType: String,
     name: String,
@@ -31,8 +34,13 @@ let tripsSchema = mongoose.Schema({
 let userSchema = mongoose.Schema({
     id: { type: Number, unique: true, sparse: true },
     userName: String,
-    userMail: String,
-    userPass: String,
+    userMail: {
+        type: String, required: [true, 'Please enter your email']
+    },
+    userPass: {
+        type: String, required: [true, 'Please enter your password'],
+        minlength: [8, 'Minimum password length is 8 characters']
+    },
     userNum: String,
     trips: [String],
     userimage: String,
@@ -47,8 +55,15 @@ let paymentSchema = mongoose.Schema({
 })
 
 let feedbackSchema = mongoose.Schema({
+    tripId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'trips'
+    },
+    userMail: {
+        type: String,
+        unique: true
+    },
     userName: String,
-    userMail: { type: String, unique: true },
     feedback: String
 })
 
