@@ -4,7 +4,7 @@ const auth = require('./auth')
 
 //User Controller 
 const userController = require('./Controller/UserController')
-routers.post('/signup', userController.signUpUser);
+routers.post('/sign-up', userController.signUpUser);
 routers.post('/login', userController.loginUser);
 routers.post('/logout', userController.userlogout)
 routers.get('/checkuser', auth, (req, res) => {
@@ -27,6 +27,13 @@ routers.get('/filldata', tripController.fillTrips)
 routers.post('/getmytrips', tripController.getmytrips)
 //Favorite Controller 
 const favoriteController = require('./Controller/FavoriteController')
+
+
+
+//Feedback Controller 
+const feedbackController = require('./Controller/FeedbackController')
+routers.post('/addfeedback', feedbackController.addFeedback)
+
 
 
 module.exports = routers;
