@@ -1,0 +1,45 @@
+#move{
+    
+    margin-bottom: 40px;
+    position:relative; 
+     top:80px;
+     height:380px;
+}
+
+.name2 h3 {
+    text-align: left;
+    font-weight: bold;
+    position: relative;
+    left: 12%;
+    color:rgb(97, 24, 56) 
+
+
+}
+
+.inputborder {
+    border-radius: 25px;
+    border-color: rgb(97, 24, 56);
+    padding: 20px;
+    width: 250px;
+    height: 40px;
+}
+
+
+.submit  .button{
+position: relative;
+left: 5%;
+border-radius: 25px;
+width: 80px;
+height: 40px;
+background-color:rgb(97, 24, 56); 
+
+
+}
+
+.vl{
+    border-left: 6px solid rgb(97, 24, 56); 
+    height: 300px;
+    position: relative;
+    left: 50%;
+    bottom: 300px;
+}

@@ -47,5 +47,6 @@
   },
   "compilerOptions": {
     "target": "ES6"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }

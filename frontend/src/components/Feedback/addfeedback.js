@@ -1,16 +1,18 @@
 import React from "react";
-// import './addfeedback.css';
+import './addfeedback.css';
 
 
 class AddFeedback extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userMail:'',
       userName: '',
       feedback: ''
     };
     this.changeUserName = this.changeUserName.bind(this);
     this.changeFeedback = this.changeFeedback.bind(this);
+    this.changeUserMail = this.changeUserMail.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -18,6 +20,9 @@ class AddFeedback extends React.Component {
     this.setState({ userName: e.target.value })
   }
 
+  changeUserMail(e) {
+    this.setState({ userMail: e.target.value })
+  }
 
  
 
@@ -46,6 +51,7 @@ class AddFeedback extends React.Component {
       });
 
     this.setState({
+      userMail:'',
       userName: '',
       feedback: ''
     })
@@ -55,9 +61,10 @@ class AddFeedback extends React.Component {
   render() {
     return (
       <div className="root1">
+        <div id="move">
         <div className="name2">
-          <h3>Give Feedback</h3>
-        </div>
+          <h3 >Give Feedback</h3>
+        </div><br/>
         <form className="form" onSubmit={this.onSubmit}>
           <div className="details">
             <div className="namedetails">
@@ -70,18 +77,17 @@ class AddFeedback extends React.Component {
                 value={this.state.userName}
                 onChange={this.changeUserName}
               />
-            </div>
-            {/* <div className="namedetails">
-              <h3>Your Email</h3>
+            </div><br/>
+            <div className="namedetails">
               <input
                 className="inputborder"
                 placeholder="Enter Your Email Here"
                 type="text"
                 name="Email"
                 value={this.state.userMail}
-                onChange={this.changeEmail}
+                onChange={this.changeUserMail}
               />
-            </div> */}
+            </div><br/>
             <div className="namedetails">
               <input
                 className="inputborder"
@@ -91,7 +97,7 @@ class AddFeedback extends React.Component {
                 value={this.state.feedback}
                 onChange={this.changeFeedback}
               />
-            </div>
+            </div><br/>
             <div className="submit">
               <button className="button" onClick={this.handleClick}>
                 Submit
@@ -99,7 +105,11 @@ class AddFeedback extends React.Component {
             </div>
           </div>
         </form>
+        <div class="vl"></div>
+        </div>
       </div>
+      
+
     );
   }
 }

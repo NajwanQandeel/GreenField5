@@ -4,7 +4,7 @@ const auth = require('./auth')
 
 //User Controller 
 const userController = require('./Controller/UserController')
-routers.post('/sign-up', userController.signUpUser);
+routers.post('/signup', userController.signUpUser);
 routers.post('/login', userController.loginUser);
 routers.post('/logout', userController.userlogout)
 routers.get('/checkuser', auth, (req, res) => {
@@ -34,6 +34,9 @@ const favoriteController = require('./Controller/FavoriteController')
 const feedbackController = require('./Controller/FeedbackController')
 routers.post('/addfeedback', feedbackController.addFeedback)
 
+// get all feedback
+
+routers.get('/allFeedback', feedbackController.allFeedback)
 
 
 module.exports = routers;

@@ -77,6 +77,10 @@ module.exports.payment = payment
 module.exports.trips = trips
 module.exports.Favorite = Favorite
 let feedbackSchema = mongoose.Schema({
+    userMail:{
+        type:String,
+        unique:true
+    },
     userName: String,
     feedback:String
 })
