@@ -42,10 +42,11 @@ class Trip extends React.Component {
                 }
             }
         }
-
+        
         return (
             <div >
-                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
+{            console.log("hello")}
+{/* }               <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2945/2945620.svg' alt='Trip Map'></img>
                         <p>{this.state.thetrip.name}</p>
@@ -71,7 +72,7 @@ class Trip extends React.Component {
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3409/3409565.svg' alt='tripGuide'></img>
                         <p>{this.state.thetrip.tripGuide}</p>
                     </div>
-                    <div><Favorite /></div>
+                    <div><Favorite variables={this.props}/></div>
                 </div>
                 <br></br>
                 <div>
@@ -90,7 +91,6 @@ class Trip extends React.Component {
                 </div>
 
                 <Link to={{
-                    pathname: pathname,
                     state: statedata,
                 }}   >
                     <div style={{ 'display': 'block' }}>
@@ -121,7 +121,8 @@ class Trip extends React.Component {
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>
-                </div>
+                </div>    pathname: pathname, */}
+                
             </div >
         )
     }
