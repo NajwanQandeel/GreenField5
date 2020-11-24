@@ -3,6 +3,8 @@ const dotenv = require('dotenv')
 dotenv.config()
 //for mongo db 
 const mongoose = require('mongoose');
+
+var Schema = mongoose.Schema;
 //(check .env file!)
 mongoose.connect(process.env.DB_CONNECT, { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true })
 var db = mongoose.connection
@@ -11,6 +13,7 @@ db.on('error', console.error.bind(console, 'connection error'))
 db.once('open', function () {
     console.log('connection to db sucessful')
 })
+
 //Schemas
 let tripsSchema = mongoose.Schema({
     id: { type: Number, unique: true },
@@ -54,6 +57,28 @@ let paymentSchema = mongoose.Schema({
     exDate: Date
 })
 
+
+let favoriteSchema = mongoose.Schema({
+    userFrom: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    tripId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'trips'
+    }
+})
+
+
+let trips = mongoose.model("tripsinfo", tripsSchema);
+let users = mongoose.model("userinfo", userSchema);
+let payment = mongoose.model("paymentinfo", paymentSchema);
+let Favorite = mongoose.model("Favorite", favoriteSchema);
+
+module.exports.users = users
+module.exports.payment = payment
+module.exports.trips = trips
+module.exports.Favorite = Favorite
 let feedbackSchema = mongoose.Schema({
     tripId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -68,12 +93,7 @@ let feedbackSchema = mongoose.Schema({
 })
 
 
-let trips = mongoose.model("tripsinfo", tripsSchema);
-let users = mongoose.model("userinfo", userSchema);
-let payment = mongoose.model("paymentinfo", paymentSchema)
 let feedback = mongoose.model("feedback", feedbackSchema);
 
-module.exports.users = users
-module.exports.payment = payment
 module.exports.feedback = feedback
-module.exports.trips = trips
+

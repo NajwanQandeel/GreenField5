@@ -25,6 +25,9 @@ routers.get('/gettrips', tripController.tripsList)
 routers.post('/addtrip', tripController.updateTrip)
 routers.get('/filldata', tripController.fillTrips)
 routers.post('/getmytrips', tripController.getmytrips)
+//Favorite Controller 
+const favoriteController = require('./Controller/FavoriteController')
+routers.post('/addtofavorite', favoriteController.addtoFavorite)
 
 
 //Feedback Controller 

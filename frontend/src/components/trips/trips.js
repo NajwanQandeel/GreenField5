@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Day from './days';
 import AddFeedBack from '../Feedback/addfeedback.js'
 // import AllFeedback from '../Feedback/feedback.js'
+import Favorite from "../Favorite/favorite"
+
+
 class Trip extends React.Component {
 
     constructor(props) {
@@ -71,6 +74,10 @@ class Trip extends React.Component {
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3467/3467983.svg' alt='Date'></img>
                         <p>{new Date(this.state.thetrip.date).toLocaleDateString()}</p>
                     </div>
+                    <div>
+                        <Favorite />
+                    </div>
+
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3409/3409565.svg' alt='tripGuide'></img>
                         <p>{this.state.thetrip.tripGuide}</p>
