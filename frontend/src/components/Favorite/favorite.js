@@ -69,11 +69,11 @@ function Favorite(props) {
 
     return (
         <div>
-            <IconButton >
+            {/* <IconButton >
                 <StarsIcon onClick={onClickFavorite} style={{"color":"red"}} />
                 {/* {Favorited ? style={"color":"red"}:style={"color":"blue"}} */}
-            </IconButton>
-            {/* <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button> */}
+            
+            <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
         </div>
     )
 }

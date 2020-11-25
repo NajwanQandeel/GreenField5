@@ -43,15 +43,11 @@ exports.removeFromFavorite=async (req,res)=>{
 exports.favoritedtrips=async (req,res)=>{
 
     // Save the information about the movie or user Id  inside favorite collection 
-    FavoriteModel.findAll({ _id: req.body.id }, (err, data) => {
-        if (data) {
-            res.send(data)
-        }})
-    // ({ userId:req.body.userID})
-    // .exec((err, doc) => {
-    //     if (err) return res.status(400).json({ success: false, err })
-    //     res.status(200).json({ success: true, doc })
-    // })
+    FavoriteModel.find(req.body.userId)
+    .exec((err, doc) => {
+        if (err) return res.status(400).json({ success: false, err })
+        res.status(200).json({ success: true, doc })
+    })
 
 }
 

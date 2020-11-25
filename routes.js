@@ -30,7 +30,7 @@ const favoriteController = require('./Controller/FavoriteController')
 routers.post('/favorited', favoriteController.Favorited)
 routers.post('/addToFavorite', favoriteController.addToFavorite)
 routers.post('/removeFromFavorite', favoriteController.removeFromFavorite)
-routers.post('/favoritedtrips', favoriteController.favoritedtrips)
+routers.get('/favoritedtrips', favoriteController.favoritedtrips)
 
 //Feedback Controller 
 const feedbackController = require('./Controller/FeedbackController')
