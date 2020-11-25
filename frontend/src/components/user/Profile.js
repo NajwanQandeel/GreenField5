@@ -118,7 +118,7 @@ class Profile extends React.Component {
                 {cards}
                 <br></br>
                 <div id='favoriteTrips' >
-                  <FavoriteList />
+                  <FavoriteList userId={this.props.userid}/>
                 </div>
               </div>
             </div>
