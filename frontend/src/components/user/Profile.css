@@ -49,3 +49,11 @@ html, body {
   display: flex;
   flex-wrap: wrap;
 } 
+
+#favoriteList{
+  /* height:120vh; */
+  /* padding-bottom: 20%; */
+    /* padding: 20px; */
+  /* float: left; */
+  background-color: aquamarine;
+}
