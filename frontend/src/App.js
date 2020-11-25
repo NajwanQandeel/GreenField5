@@ -74,7 +74,8 @@ class App extends React.Component {
     this.getTrips()
     if (document.cookie !== `authToken=`) {
       $.get('/checkuser', (res) => {
-        console.log(res._id)
+
+        console.log("kfkfdk;",res._id)
         $.ajax({
           method: 'POST',
           url: '/getuserinfo',

@@ -1,22 +1,50 @@
 const FavoriteModel = require('../DataModel').Favorite
 
-exports.addtoFavorite = async (req, res) => {
-    // Feedback Data
-    // userFrom=req.body.usreFrom;
-    // FavoriteModel.findOne({ userFrom:req.body.usreFrom}, (err, feedback) => {
-    //     if (err) {
-    //         console.log(err)
-    //         return res.status(400).send('error')
-    //     }
-        var newFavorite = new FavoriteModel()
-        newFavorite.userFrom=req.body.usreFrom;
-        newFavorite.tripId=req.body.tripId;
-     
-        newFavorite.save((err, saveduse) => {
-            if (err) {
-                res.status(400).json({ 'error': err })
-                res.status(201).json('sucessfully')
+exports.Favorited = async (req, res) => {
+    FavoriteModel.find({ "userId":req.body.userId,"tripId":req.body.tripId})
+        .exec(( err, favorite) => {
+            if(err) return res.status(400).send(err)
+            
+            //How can we know if I already favorite this trip or not ? 
+            let result = false;
+            if(favorite.length !== 0) {
+                result = true
             }
+            
+            res.status(200).json({ success: true, favorited: result});
+            
         })
-  
 }
+
+
+exports.addToFavorite=async (req,res)=>{
+
+    // Save the information about the movie or user Id  inside favorite collection 
+    var newFavorite = new FavoriteModel()
+    newFavorite.userId=req.body.userId;
+    newFavorite.tripId=req.body.tripId;
+ 
+    newFavorite.save((err, saveduse) => {
+        if (err)return res.json({ success: false, err })
+        return res.status(200).json({ success: true })
+    })
+
+}
+exports.removeFromFavorite=async (req,res)=>{
+
+    // Save the information about the movie or user Id  inside favorite collection 
+    FavoriteModel.findOneAndDelete({ userId:req.body.userId,tripId:req.body.tripId})
+    .exec((err, doc) => {
+        if (err) return res.status(400).json({ success: false, err })
+        res.status(200).json({ success: true, doc })
+    })
+
+}
+
+
+
+
+
+
+
+   

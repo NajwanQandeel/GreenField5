@@ -1,10 +1,10 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 // import Heart from "react-animated-heart";
 import StarsIcon from '@material-ui/icons/Stars';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import "./favorite.css"
-// import axios from "./axios"
+import axios from "axios"
 const useStyles = makeStyles((theme) => ({
     starsIcon: {
 
@@ -15,35 +15,77 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 function Favorite(props) {
-    const classes = useStyles();
-    useEffect(()=>{
-        // const variables={
-        //     userFrom:props.userid,
-        //     tripId:props.location.state.trip._id
-        // }
-    })
-    fetch('/addtofavorite', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(),
-      })
-        .then(response => response.json())
-        .then(data => {
-          alert("Added to Favorite !!");
-          // window.location.href = '/'
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
+    // const classes = useStyles();
+    const [Favorited, setFavorited] = useState(false)
+    const variables = {
+        userId: props.userId,
+        tripId: props.tripId
+    }
+    console.log("hello",props)
+    useEffect(() => {
+
+        // console.log(this.variables)
+        axios.post('/favorited', variables)
+            .then(response => {
+                if (response.data.success) {
+                    setFavorited(response.data.favorited)
+                } else {
+                    alert('Failed to get Favorite Info')
+                }
+            })
+    }, [])
+
+    const onClickFavorite = () => {
+        if (Favorited) {
+            // When already added 
+
+            axios.post('/removeFromFavorite', variables)
+                .then(response => {
+                    if (response.data.success) {
+
+                        setFavorited(!Favorited)
+                    } else {
+                        alert(' Failed to remove from favorite')
+                    }
+                })
+
+
+
+        } else {
+            //When Not adding yet 
+
+            axios.post('/addToFavorite', variables)
+                .then(response => {
+                    if (response.data.success) {
+                        setFavorited(!Favorited)
+                    } else {
+                        alert(' Failed to add to Favirotes')
+                    }
+                })
+
+        }
+    }
+
+
     return (
         <div>
-            <IconButton className={classes.starsIcon}>
+            {/* <IconButton >
                 <StarsIcon />
-            </IconButton>
+            </IconButton> */}
+            <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
         </div>
     )
 }
-
 export default Favorite;
+
+
+
+
+
+
+
+
+
+
+
+

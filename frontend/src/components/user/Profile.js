@@ -19,7 +19,7 @@ class Profile extends React.Component {
 //display the user info and user trips
   componentDidMount() {
     document.documentElement.scrollTop = 0;
-    console.log(this.props.location)
+    // console.log(this.props.location)
     if (this.props.userid.userimage) {
       this.setState({
         profileimg: this.props.userid.userimage

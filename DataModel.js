@@ -59,7 +59,7 @@ let paymentSchema = mongoose.Schema({
 
 
 let favoriteSchema = mongoose.Schema({
-    userFrom: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
