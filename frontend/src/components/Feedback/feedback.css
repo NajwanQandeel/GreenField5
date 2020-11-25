@@ -1,4 +1,15 @@
 #root1 {
 background-color: green;
+position: relative;
+bottom: 340px;
+left:60%;
+width: 500px;
 
 }
+
+#root1 #show{
+    background-color: hotpink;
+    width: 500px;
+    height: 100px;
+}
+

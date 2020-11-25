@@ -23,18 +23,19 @@ exports.addFeedback = async (req, res) => {
     })
 }
 
-// exports.allFeedback= async(req,res) => {
-//     UserModel.find({tripId: req.body.tripId},(err, feeds) => {
-//         if (err)
-//             res.send(err);
-//         res.json(feeds);
-//     });
-// }
-exports.FindAllFeedByIdOfTrip = async(req, res) => {
-    UserModel.find({ tripId: req.body.tripId})
-      .populate('tripId')
-      .exec((err, feeds) => {
-        if (err) return res.status(404).json({ success: false })
-        res.json(feeds)
-      })
-    }
+exports.FindAllFeedByIdOfTrip= async(req,res) => {
+    UserModel.find({},(err, feeds) => {
+        if (err)
+            res.send(err);
+        res.json(feeds);
+    });
+}
+// exports.FindAllFeedByIdOfTrip = (req, res) => {
+//     UserModel.find({ tripId: req.body.tripId})
+//       .populate('tripId')
+//       .exec((err, feeds) => {
+//         if (err) return res.status(404).json({ success: false })
+//         res.json(feeds)
+//       })
+//     }
+   

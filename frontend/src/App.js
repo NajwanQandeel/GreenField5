@@ -3,7 +3,7 @@ import Navbar from './components/Homepage/Navbar';
 import Footer from './components/Homepage/Footer';
 import Home from './components/Homepage/Home'
 import $ from 'jquery'
-
+// import axios from 'axios';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 import Trips from './components/Homepage/Cards'
@@ -26,7 +26,8 @@ class App extends React.Component {
       isuser: false,
       tokenin: "",
       testtrips: [],
-      userid: ''
+      userid: '',
+      feedArr:[]
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getTrips = this.getTrips.bind(this)
@@ -45,6 +46,24 @@ class App extends React.Component {
 
     })
   }
+//get feedback
+// componentDidMount = ()=>{
+//   this.getFeedBack();
+// }
+// getFeedBack = ()=>{
+//   axios.get('/FindAllFeedByIdOfTrip')
+//   .then((response)=>{
+//     const data = response.data;
+//     this.setState({feeds:data})
+//     console.log('data recivied');
+//   })
+//   .catch(()=>{
+//    alert("error reciving");
+//   })
+// }
+
+
+
   //to get all the trips
   getTrips = () => {
     var alltrips = []

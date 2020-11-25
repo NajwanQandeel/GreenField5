@@ -1,5 +1,5 @@
 import React from "react";
-import FeedCard  from './showFeed.js'
+import FeedCard from './showFeed.js'
 import './feedback.css'
 
 class Feedback extends React.Component {
@@ -12,9 +12,9 @@ class Feedback extends React.Component {
 
     }
     componentDidMount() {
-    
+
         const tripId = this.props.id
-     this.setState({ tripId})
+        this.setState({ tripId })
     }
 
     getFeedback(obj) {
@@ -26,27 +26,34 @@ class Feedback extends React.Component {
         fetch('/FindAllFeedByIdOfTrip', getFeedback)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                console.log("nnnnn",data)
                 this.setState({ feedbackArr: data })
             })
     }
-        render() {
-            console.log(this.props.tripId)
-            const {feedbackArr} = this.state
-            return (
-                <div id="root1">
-                    <h3 >All Feedback For This Trip</h3>
-                <div className='App_container'>
+    render() {
+        console.log(this.props.tripId)
+        const { feedbackArr } = this.state
+        return (
+            <div id="root1">
+                <h3 >All Feedback For This Trip</h3>
+                <div className="user-details" id="show">
+                    
                     {
-                        feedbackArr.map((card, id) => {
-                            return <FeedCard key={id} card={card} />
-                        })
+                        this.state.feedbackArr.map(feed =>
+                            <tr id="tr">
+                                <td>Username: </td>
+                                {/* <td>{{this.props.userid.userName}</td> */}
+                                <td>Feedback: </td>
+                                <td>{this.props.userid.feedback}</td>
+                            </tr>
+
+                        )
                     }
                 </div>
             </div>
-            );
-        }
-                }
-    
+        );
+    }
+}
 
-    export default Feedback;
+
+export default Feedback;

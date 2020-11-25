@@ -32,7 +32,8 @@ const feedbackController = require('./Controller/FeedbackController')
 routers.post('/addfeedback', feedbackController.addFeedback)
 
 // get all feedback for one trip 
-routers.post('FindAllFeedByIdOfTrip',feedbackController.FindAllFeedByIdOfTrip)
+// routers.post('/FindAllFeedByIdOfTrip',feedbackController.FindAllFeedByIdOfTrip)
+routers.get('/FindAllFeedByIdOfTrip',feedbackController.FindAllFeedByIdOfTrip)
 
 
 module.exports = routers;
