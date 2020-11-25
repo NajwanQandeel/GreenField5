@@ -1,71 +1,52 @@
-// import React from "react";
-// import './feedback.css';
+import React from "react";
+import FeedCard  from './showFeed.js'
+import './feedback.css'
 
-// class Feedback extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//           userName: '',
-//           feedback: '',
-//           tripId:''
-//         };
-      
+class Feedback extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            feedbackArr: [],
+            // tripId: ''
+        };
+
+    }
+    componentDidMount() {
     
-    //   onSubmit = (e) => {
-    //     e.preventDefault();
-    
-    //     fetch('http://localhost:4000/feedback', {
-    //       method: 'GET',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //       },
-    //       body: JSON.stringify(this.state),
-    //     })
-    //       .then(response => response.json())
-        
-    //       .catch((error) => {
-    //         console.error('Error:', error);
-    //       });
-    
-    //     this.setState({
-    //       userName: '',
-    //       feedback: ''
-    //     })
-    
-    //   }
-    
-    //   render() {
-    //     return (
-    //       <div className="root1">
-    //         <div id="move">
-    //         <div className="name2">
-    //           <h3 >All Feedback</h3>
-    //         </div><br/>
-    //         <div>
-    //                     <p>{this.state.userName}</p>
-    //                 </div>
-    //                 <div>
-    //                     <p>{this.state.feedback}</p>
-    //         </div>
-            /////////////////////////////////////////
-            {/* <div>
-                    {Object.keys(this.state.tripId.userName).map((value) => {
-                        let props = {
-                            userName: value,
-                            feedback: value,
-                        }
-                        return (<div>{props}
-                            <br></br></div>)
+        const tripId = this.props.id
+     this.setState({ tripId})
+    }
+
+    getFeedback(obj) {
+        const getFeedback = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj)
+        };
+        fetch('/FindAllFeedByIdOfTrip', getFeedback)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                this.setState({ feedbackArr: data })
+            })
+    }
+        render() {
+            console.log(this.props.tripId)
+            const {feedbackArr} = this.state
+            return (
+                <div id="root1">
+                    <h3 >All Feedback For This Trip</h3>
+                <div className='App_container'>
+                    {
+                        feedbackArr.map((card, id) => {
+                            return <FeedCard key={id} card={card} />
+                        })
                     }
-                    )}
-                </div> */}
-            
-//             </div>
-//           </div>
-          
+                </div>
+            </div>
+            );
+        }
+                }
     
-//         );
-//       }
-//     }
-    
-// export default Feedback;
+
+    export default Feedback;

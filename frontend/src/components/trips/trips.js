@@ -3,7 +3,8 @@ import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days';
 import AddFeedBack from '../Feedback/addfeedback.js'
-// import AllFeedback from '../Feedback/feedback.js'
+import AllFeedback from '../Feedback/feedback.js'
+
 class Trip extends React.Component {
 
     constructor(props) {
@@ -30,7 +31,7 @@ class Trip extends React.Component {
     }
     render() {
         // console.log("my console",this.props.location)
-        // console.log(this.props.location.state.trip._id)
+        console.log(this.props.location.state.trip._id)
 
         var today = new Date();
         let statedata = {}
@@ -118,10 +119,10 @@ class Trip extends React.Component {
                         </p>
                     </div></Link>
                     <div>
-                        <AddFeedBack/>
+                        <AddFeedBack id={this.props.location.state.trip._id}/>
                     </div>
                     <div>
-                        {/* <AllFeedback/> */}
+                        <AllFeedback id={this.props.location.state.trip._id}/>
                     </div>
                 <br></br>
                 <div className="bookx">

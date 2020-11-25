@@ -15,6 +15,8 @@ import MyTrip from './components/trips/mytrips'
 import Profile from './components/user/Profile';
 import Navbar2 from './components/Homepage/Navbar-login';
 
+// import Feedback from './components/Feedback/feedback.js';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -141,6 +143,7 @@ class App extends React.Component {
             <Route path="/trip" exact component={Trip} />
             <Route path="/mytrip" exact component={MyTrip} />
             <Route path="/payment" exact component={Payment} />
+           
           </Switch>
          <Footer/>
         </Router>

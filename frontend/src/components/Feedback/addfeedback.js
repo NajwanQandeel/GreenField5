@@ -20,28 +20,10 @@ class AddFeedback extends React.Component {
   }
 
   componentDidMount() {
-    //  console.log( this.props.location.state.trip)
-    //  const tripId = this.props.location.state.trip._id
-    //  this.setState({ tripId})
+     console.log("ooooooooooooo", this.props.id)
+     const tripId = this.props.id
+     this.setState({ tripId})
 }
-// getTripId = () => {
-//   var tripId; 
-//   $.ajax({
-//     type: "GET",
-//     url: "/trip",
-//     success: (res) => {
-//       for (var i in res) {
-//         alltrips.push(res[i])
-//       }
-//       this.setState({
-//         testtrips: alltrips
-//       })
-//     },
-//     error: function (err) {
-//       console.error(err)
-//     }
-//   })
-// }
 
   // changeTripeId(e) {
   //   this.setState({ tripId:this.props.location.state.trip._id})
