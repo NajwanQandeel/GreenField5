@@ -21,7 +21,7 @@ function Favorite(props) {
         userId: props.userId,
         tripId: props.tripId
     }
-    console.log("hello",props)
+    console.log("hello", props)
     useEffect(() => {
 
         // console.log(this.variables)
@@ -69,11 +69,7 @@ function Favorite(props) {
 
     return (
         <div>
-            <IconButton >
-                <StarsIcon onClick={onClickFavorite} style={{"color":"red"}} />
-                {/* {Favorited ? style={"color":"red"}:style={"color":"blue"}} */}
-            </IconButton>
-            {/* <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button> */}
+            <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
         </div>
     )
 }
