@@ -19,7 +19,9 @@ function Favorite(props) {
     const [Favorited, setFavorited] = useState(false)
     const variables = {
         userId: props.userId,
-        tripId: props.tripId
+        tripId: props.tripId,
+        // tripName:props.tripName,
+        // tripImage:props.tripImage[0][0]
     }
     console.log("hello",props)
     useEffect(() => {

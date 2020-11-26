@@ -72,7 +72,7 @@ class Trip extends React.Component {
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/3409/3409565.svg' alt='tripGuide'></img>
                         <p>{this.state.thetrip.tripGuide}</p>
                     </div>
-                    <div><Favorite tripId={this.props.location.state.trip._id} userId={this.props.location.state.userid}/></div>
+                    <div><Favorite tripId={this.props.location.state.trip._id} userId={this.props.location.state.userid} /></div>
                 </div>
                 <br></br>
                 <div>

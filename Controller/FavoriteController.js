@@ -1,4 +1,5 @@
 const FavoriteModel = require('../DataModel').Favorite
+const tripsData = require('../Data/trips.json')
 
 exports.Favorited = async (req, res) => {
     FavoriteModel.find({ "userId":req.body.userId,"tripId":req.body.tripId})
@@ -23,6 +24,9 @@ exports.addToFavorite=async (req,res)=>{
     var newFavorite = new FavoriteModel()
     newFavorite.userId=req.body.userId;
     newFavorite.tripId=req.body.tripId;
+    // newFavorite.tripName=req.body.tripName;
+    // newFavorite.tripImage=req.body.tripImage;
+
  
     newFavorite.save((err, saveduse) => {
         if (err)return res.json({ success: false, err })
@@ -50,6 +54,16 @@ exports.favoritedtrips=async (req,res)=>{
     })
 
 }
+// exports.getFavTrip=async (req,res)=>{
+
+//     // Save the information about the movie or user Id  inside favorite collection 
+//     FavoriteModel.findOne(req.body.tripId)
+//     .exec((err, doc) => {
+//         if (err) return res.status(400).json({ success: false, err })
+//         res.status(200).json({ success: true, doc })
+//     })
+
+// }
 
 
 

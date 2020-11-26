@@ -66,15 +66,13 @@ let favoriteSchema = mongoose.Schema({
     tripId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'trips'
+    },
+    tripName: {
+        type:String
+    },
+    tripImage: {
+        type:String
     }
-    // tripName: {
-    //     type: mongoose.Schema.Types.name,
-    //     ref: 'trips'
-    // },
-    // tripImage: {
-    //     type: mongoose.Schema.Types.image,
-    //     ref: 'trips'
-    // }
 })
 
 
