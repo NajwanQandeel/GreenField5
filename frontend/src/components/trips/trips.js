@@ -122,7 +122,7 @@ class Trip extends React.Component {
                         <AddFeedBack id={this.props.location.state.trip._id}/>
                     </div>
                     <div>
-                        <AllFeedback id={this.props.location.state.trip._id}/>
+                        <AllFeedback id1={this.props.location.state.trip._id}/>
                     </div>
                 <br></br>
                 <div className="bookx">

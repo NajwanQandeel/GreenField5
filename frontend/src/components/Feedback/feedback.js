@@ -44,9 +44,9 @@ class Feedback extends React.Component {
         // var feedbackArr = this.props.tripId.feedback
         axios.post('/FindAllFeedByIdOfTrip', {
 
-            // params: {
-            //     ID: tripId
-            //   }
+            params: {
+                ID: tripId
+              }
 
         })
             .then((response) => {
@@ -82,19 +82,23 @@ class Feedback extends React.Component {
         return (
             <div id="root1">
                
-               <h3 >All Feedback For This Trip</h3>
+               <h3 >All Feedback For This Trip</h3><br/><br/>
                 <div className="user-details" id="show">
                 
                   
-                   { this.state.feedbackArr.feeds.map((feed, index) => {
+                   { this.state.feedbackArr.feeds.map((feed, index) => (
                         //  {  console.log("nnn",this.state.feedbackArr.feeds[0])}
-                        {console.log("username",feed.userName)}
-                       <div> qqqqqqqqqqqqqqqqqq</div>
-                            //  <h3 id="text"> helllllo</h3>
-                            // <p>{feed.feedback}</p>
-                           
                         
-                    })} 
+                       <div id="contain"> 
+                      
+                      <div id="in">
+                             <h3 id="text">{feed.userName} : </h3>
+                             <h3 id="feed">{feed.feedback}</h3> <br/><br/>
+                             </div><br/><br/><br/><br/>
+                           
+                            </div>
+                        
+                   ))} 
 
                 </div>
             </div>

@@ -22,9 +22,9 @@ exports.addFeedback = async (req, res) => {
 
 
 exports.FindAllFeedByIdOfTrip = (req, res) => {
-    console.log("dddddddd");
-    UserModel.find(req.body.tripId)
-        .populate({ path: 'tripId', model: UserModel })
+    console.log("dddddddd",req.body);
+    UserModel.find({ 'tripId' : req.body.params.ID})
+        // .populate("tripId" )
         .exec((err, feeds) => {
             if (err) { console.log(err) ; res.status(404).send({ err }).end()}
  
