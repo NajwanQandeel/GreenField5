@@ -3,7 +3,7 @@ import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days';
 import AddFeedBack from '../Feedback/addfeedback.js'
-import AllFeedback from '../Feedback/feedback.js'
+import Feedback from '../Feedback/feedback.js'
 
 class Trip extends React.Component {
 
@@ -122,7 +122,7 @@ class Trip extends React.Component {
                         <AddFeedBack id={this.props.location.state.trip._id}/>
                     </div>
                     <div>
-                        <AllFeedback id={this.props.location.state.trip._id}/>
+                        <Feedback id1={this.props.location.state.trip._id}/>
                     </div>
                 <br></br>
                 <div className="bookx">

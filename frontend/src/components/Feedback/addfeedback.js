@@ -57,18 +57,18 @@ class AddFeedback extends React.Component {
       .then(response => response.json())
       .then(data => {
         alert("Thank You For Your Feedback !!");
+        // this.displayFeedBack(); to let feedback add directlly to the list of all feedback on the screen 
         // window.location.href = '/'
+        this.setState({
+          userMail:'',
+          userName: '',
+          feedback: '',
+          tripId:''
+        })
       })
       .catch((error) => {
         console.error('Error:', error);
       });
-
-    this.setState({
-      userMail:'',
-      userName: '',
-      feedback: '',
-      tripId:''
-    })
 
   }
 

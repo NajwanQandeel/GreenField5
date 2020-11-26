@@ -27,7 +27,7 @@ class App extends React.Component {
       tokenin: "",
       testtrips: [],
       userid: '',
-      feedArr:[]
+    
     }
     this.changeLogInStatus = this.changeLogInStatus.bind(this)
     this.getTrips = this.getTrips.bind(this)
@@ -46,23 +46,6 @@ class App extends React.Component {
 
     })
   }
-//get feedback
-// componentDidMount = ()=>{
-//   this.getFeedBack();
-// }
-// getFeedBack = ()=>{
-//   axios.get('/FindAllFeedByIdOfTrip')
-//   .then((response)=>{
-//     const data = response.data;
-//     this.setState({feeds:data})
-//     console.log('data recivied');
-//   })
-//   .catch(()=>{
-//    alert("error reciving");
-//   })
-// }
-
-
 
   //to get all the trips
   getTrips = () => {
