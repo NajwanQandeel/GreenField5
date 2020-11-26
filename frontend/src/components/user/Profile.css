@@ -35,6 +35,7 @@ html, body {
 .text{
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
+  text-align: center;
 }
 
 #profile{
@@ -44,8 +45,21 @@ html, body {
   flex: 25%;
   padding: 20px;
 }
+#booked{
+  text-align: center;
+}
 
 #row{
-  display: flex;
+  display: flex ;
   flex-wrap: wrap;
 } 
+/* 
+#favoriteList{
+  /* height:120vh; */
+  /* padding-bottom: 20%; */
+    /* padding: 20px; */
+  /* float: left; */
+  /* background-color: aquamarine; */
+  /* border: cornsilk; */
+  /* border-radius: 10px; */
+ /* } */ 

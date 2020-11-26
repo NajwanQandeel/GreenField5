@@ -2,7 +2,7 @@ import React from "react";
 import './Profile.css';
 import Carditem from './UserCarditem';
 import $ from 'jquery'
-
+import FavoriteList from '../Favorite/favoriteList.js'
 class Profile extends React.Component {
 
   constructor(props) {
@@ -16,10 +16,10 @@ class Profile extends React.Component {
     }
   }
 
-//display the user info and user trips
+  //display the user info and user trips
   componentDidMount() {
     document.documentElement.scrollTop = 0;
-    console.log(this.props.userid)
+    // console.log(this.props.location)
     if (this.props.userid.userimage) {
       this.setState({
         profileimg: this.props.userid.userimage
@@ -46,12 +46,12 @@ class Profile extends React.Component {
       }
     }
   }
-  
+
   render() {
     let cards
     if (this.state.mytrips) {
       cards = <div> <ul className="cards__items">
-      {/* Display the user trip the first three */}
+        {/* Display the user trip the first three */}
         {this.state.mytrips.slice(0, 3).map((trip) =>
           <Carditem
             src={trip.image[0][0]}
@@ -73,7 +73,7 @@ class Profile extends React.Component {
 
     }
     else {
-      cards = <div>No Booked Trips Yet</div>
+      cards = <div id='booked' >No Booked Trips Yet</div>
     }
     return (
       <div className="imgdiv">
@@ -116,6 +116,10 @@ class Profile extends React.Component {
                 </div>
                 <br></br>
                 {cards}
+                <br></br>
+                <div id='favoriteTrips' >
+                  <FavoriteList userId={this.props.userid} />
+                </div>
               </div>
             </div>
           </div>

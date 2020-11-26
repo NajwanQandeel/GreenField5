@@ -3,6 +3,8 @@ const dotenv = require('dotenv')
 dotenv.config()
 //for mongo db 
 const mongoose = require('mongoose');
+
+var Schema = mongoose.Schema;
 //(check .env file!)
 mongoose.connect(process.env.DB_CONNECT, { useCreateIndex: true, useUnifiedTopology: true, useNewUrlParser: true })
 var db = mongoose.connection
@@ -11,6 +13,7 @@ db.on('error', console.error.bind(console, 'connection error'))
 db.once('open', function () {
     console.log('connection to db sucessful')
 })
+
 //Schemas
 let tripsSchema = mongoose.Schema({
     id: { type: Number, unique: true },
@@ -34,9 +37,9 @@ let tripsSchema = mongoose.Schema({
 let userSchema = mongoose.Schema({
     id: { type: Number, unique: true, sparse: true },
     userName: String,
-    userMail: { 
+    userMail: {
         type: String, required: [true, 'Please enter your email']
-      },
+    },
     userPass: {
         type: String, required: [true, 'Please enter your password'],
         minlength: [8, 'Minimum password length is 8 characters']
@@ -54,7 +57,12 @@ let paymentSchema = mongoose.Schema({
     exDate: Date
 })
 
-let feedbackSchema = mongoose.Schema({
+
+let favoriteSchema = mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
     tripId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'trips'
@@ -62,17 +70,36 @@ let feedbackSchema = mongoose.Schema({
     userMail:{
         type:String,
     },
-    userName: String,
-    feedback:String
+    tripImage: {
+        type:String
+    }
 })
 
 
 let trips = mongoose.model("tripsinfo", tripsSchema);
 let users = mongoose.model("userinfo", userSchema);
-let payment = mongoose.model("paymentinfo", paymentSchema)
-let feedback = mongoose.model("feedback", feedbackSchema);
+let payment = mongoose.model("paymentinfo", paymentSchema);
+let Favorite = mongoose.model("Favorite", favoriteSchema);
 
 module.exports.users = users
 module.exports.payment = payment
+module.exports.trips = trips
+module.exports.Favorite = Favorite
+let feedbackSchema = mongoose.Schema({
+    tripId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'trips'
+    },
+    userMail: {
+        type: String,
+        unique: true
+    },
+    userName: String,
+    feedback: String
+})
+
+
+let feedback = mongoose.model("feedback", feedbackSchema);
+
 module.exports.feedback = feedback
-module.exports.trips=trips
+

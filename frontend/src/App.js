@@ -78,7 +78,8 @@ class App extends React.Component {
     this.getTrips()
     if (document.cookie !== `authToken=`) {
       $.get('/checkuser', (res) => {
-        console.log(res._id)
+
+        console.log("kfkfdk;",res._id)
         $.ajax({
           method: 'POST',
           url: '/getuserinfo',
@@ -110,10 +111,10 @@ class App extends React.Component {
       />
     }
     else {
-          //to check if the user want to login will be directed to login form 
+      //to check if the user want to login will be directed to login form 
       comp = <Route
         path='/sign-up'
-        render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus}/>}
+        render={(props) => <Login toggleuser={this.changeUserStatus} toggleLogin={this.changeLogInStatus} />}
       />
     }
     //if there is token - display navbar2 (login in navbar)
@@ -121,7 +122,7 @@ class App extends React.Component {
       nav = <Navbar2></Navbar2>
     }
     else {
-     //display original navbar 
+      //display original navbar 
       nav = <Navbar></Navbar>
     }
     return (
@@ -132,11 +133,11 @@ class App extends React.Component {
             {comp}
             <Route
               path="/"
-              exact render={(props) => <Home userid={this.state.userid} testtrips={this.state.testtrips}  trip={this.state.thetrip} />}
+              exact render={(props) => <Home userid={this.state.userid} testtrips={this.state.testtrips} trip={this.state.thetrip} />}
             />
             <Route
               path="/trips"
-              render={(props) => <Trips userid={this.state.userid} testtrips={this.state.testtrips}   trip={this.state.thetrip} />}
+              render={(props) => <Trips userid={this.state.userid} testtrips={this.state.testtrips} trip={this.state.thetrip} />}
             />
             <Route path="/sign-up" exact component={Signup} />
             <Route path="/login" exact component={Login} />
@@ -147,7 +148,7 @@ class App extends React.Component {
             <Route path="/payment" exact component={Payment} />
            
           </Switch>
-         <Footer/>
+          <Footer />
         </Router>
       </>
     )

@@ -1,0 +1,43 @@
+#pic{
+    height: 8%;
+    width: auto;
+    position: relative;
+    align-items: center;
+}
+#pic2{
+    height: 35%;
+    width: 180px;
+    position: relative;
+    align-items: center;
+}
+#favtrip{
+  padding-top: 60px;
+  font-size: x-large;
+  color: rgb(25, 25, 119);
+  font-family: 'Times New Roman', Times, serif;
+  /* border-style: ridge; */
+}
+td{
+    background-color: cornsilk;
+    }
+    
+table{
+    border-collapse: separate;
+    border-spacing: 20px 10px;
+    /* border: crimson; */
+    /* border-style: ridge; */
+    padding: 5%;
+    /* background-color: darkblue; */
+
+}
+p{
+  text-align: center;
+}
+
+/* #favoriteList{
+    /* background-color: chartreuse; */
+/* } */
+
+/* tr{
+    background-color: darkgoldenrod;
+} */

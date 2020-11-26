@@ -24,7 +24,7 @@ function Footer() {
                         </form>
                     </div>
                 </section>
-              
+
                 <section class='social-media center' >
                     <div class='social-media-wrap'>
                         <div class='footer-logo'>
