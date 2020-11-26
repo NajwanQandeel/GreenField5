@@ -117,6 +117,10 @@ class Trip extends React.Component {
                     <div>
                         <AddFeedBack id={this.props.location.state.trip._id}/>
                     </div>
+                    <div>
+                        <AllFeedback id1={this.props.location.state.trip._id}/>
+                    </div>
+
                 <br></br>
                 <div className="bookx">
                     <small id="nobook"></small>
