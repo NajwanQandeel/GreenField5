@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import StarsIcon from '@material-ui/icons/Stars';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import "./favorite.css"
 import axios from "axios"
 const useStyles = makeStyles((theme) => ({
@@ -75,7 +77,7 @@ function Favorite(props) {
                 <StarsIcon onClick={onClickFavorite} style={{"color":"red"}} />
                 {/* {Favorited ? style={"color":"red"}:style={"color":"blue"}} */}
             
-            <button onClick={onClickFavorite} id={'add'}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
+            <button onClick={onClickFavorite} id={'add'}>{Favorited ? <FavoriteBorderIcon style={{ color: "red",fontSize:"40px"}}/> : <FavoriteIcon style={{ color: "red",fontSize:"40px"}}/>}</button>
         </div>
     )
 }

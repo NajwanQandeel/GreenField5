@@ -4,6 +4,12 @@
     position: relative;
     align-items: center;
 }
+#pic2{
+    height: 35%;
+    width: 180px;
+    position: relative;
+    align-items: center;
+}
 #favtrip{
   padding-top: 60px;
   font-size: x-large;

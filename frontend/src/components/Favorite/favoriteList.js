@@ -42,11 +42,11 @@ function FavoriteList(props) {
             <p id="favtrip">Favorit trips</p>
             <table style={{ 'space': '20px' }} >
                 <tr>
-                    <td id="td1"><img src='https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg' alt='img' id="pic" />
-                        <p>dubai</p></td>
+                    <td id="td1"><img src='https://images.alwatanvoice.com/news/large/9999007416.jpg' alt='img' id="pic2" />
+                        <p>WadiQ anna Trip</p></td>
 
-                    <td><img src='https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg' alt='img' id="pic" />
-                        <p>dubai</p></td>
+                    <td id="td1"><img src='https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg' alt='img' id="pic" />
+                        <p>The Coast Trip</p></td>
                     {/* <td><img src='https://upload.wikimedia.org/wikipedia/commons/5/5b/Israel_-_Haifa_-_Bahai_Gardens_004.jpg' alt='img' id="pic"/>
                         <p>dubai</p></td>
 
