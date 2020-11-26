@@ -56,7 +56,7 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <div className="test">
+      <div className="test1">
         <div className="row">
           <div id="signin" className="col-sm-4 left form-group">
             <form action="#">
@@ -64,17 +64,20 @@ class Login extends React.Component {
               <br></br>
               <h3 id="signuptitle">Do you have an account</h3>
               <h3>sign in here</h3>
+              <br></br>
               <div>
-                <label>Your Email</label>
-                <input type="email" className="form-control inputhover" name="email" placeholder="Email" onChange={this.handelchange} />
+                {/* <label>Your Email</label> */}
+                <input type="email" id="form3" className="form-control inputhover" name="email" placeholder="Enter Your Email" onChange={this.handelchange} />
               </div>
+              <br></br>
               <div>
-                <label>Password</label>
-                <input type="password" className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="Password" />
+                {/* <label>Password</label> */}
+                <input type="password" id="form4"  className="form-control inputhover" name="password" onChange={this.handelchange} placeholder="Enter Your Password" />
               </div>
+              <br></br>
               <div style={{ "marginTop": '12px' }}>
                 <small id="logPass"></small>
-                <input type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
+                <input  id="loginbut"type='button' value='Signin' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '10px' }}></input>
                 <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Do not have an account</small>
               </div>
             </form>

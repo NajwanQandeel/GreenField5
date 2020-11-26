@@ -97,47 +97,55 @@ class Signup extends Component {
                             <br></br>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>New To Our Website</h4>
                             <h4 id="signintitle" style={{ "text-align": "center" }}>Join Us and Signup Here</h4>
+                            <br></br>
                             <div>
-                                <label>First Name</label>
-                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name" />
+                                {/* <label>First Name</label> */}
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="firstName" placeholder="First Name"  required/>
                             </div>
+                             <br></br>
                             <div>
-                                <label>Last Name</label>
-                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="lastName" placeholder="Last Name" />
+                                {/* <label>Last Name</label> */}
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name="lastName" placeholder="Last Name" required />
                             </div>
+                            <br></br>
+                            <div>
+                                {/* <label>Email</label> */}
+                                <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="Email" required />
+                            </div>
+                            <br></br>
+                            <div>
+                                {/* <label>Phone Number</label> */}
+                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name='phoneNo' placeholder="Phone Number"  required/>
+                            </div>
+                            <br></br>
+                            <div>
+                                {/* <label>Password</label> */}
 
-                            <div>
-                                <label>Email</label>
-                                <input type="email" className="form-control inputhover" onChange={this.handelchange} name="email" placeholder="Email" />
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" required />
                             </div>
+                            <br></br>
                             <div>
-                                <label>Phone Number</label>
-                                <input type="string" className="form-control inputhover" onChange={this.handelchange} name='phoneNo' placeholder="Phone Number" />
+                                {/* <lable>Confirm Password</lable> */}
+                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password"  required/>
                             </div>
-                            <div>
-                                <label>Password</label>
-
-                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="password" placeholder="Password" />
-                            </div>
-                            <div>
-                                <lable>Confirm Password</lable>
-                                <input type="password" className="form-control inputhover" onChange={this.handelchange} name="conformPassword" placeholder="Confirm Password" />
-                            </div>
-                            <div style={{ "marginTop": '4px', "margin-left": "10%", "margin-right": "10%" }}>
+                            <br></br>
+                            <div >
                                 <div>
-                                    <lable>Put URL link for your image</lable>
-                                    <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage" />
+                                    {/* <lable>Put URL link for your image</lable> */}
+                                    <input type="string" className="form-control inputhover" onChange={this.handelchange} name="urlimage" placeholder="URLimage"   required />
                                 </div>
+                                <br></br>
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" value={this.state.newsCheck} onClick={() => this.newsLetter()}></input>
-                                <div style={{ "marginBottom": '0' }}>
+                                <div>
                                     <label class="form-check-label" for="exampleCheck1">Subscribe To Our News Letter</label>
                                     <small id="subscribed"></small>
                                 </div>
+                                <br></br>
                             </div>
                             <div>
                                 <small id="matchPass"></small>
-                                <input type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" style={{ "display": 'inline-block', "marginRight": '4px' }}></input>
-                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block' }} onClick={this.props.toggleLogin}>Have an account? Login Here.</small>
+                                <input  id="button" type='button' value='Sign Up!' onClick={this.LoginHandler} className="btn btn-secondary" ></input>
+                                <small id="LoginupSwitch" className="form-text text-muted" style={{ "display": 'inline-block','marginLeft':'15px' }} onClick={this.props.toggleLogin}>Have an account? Login Here.</small>
                             </div>
                         </form>
                     </div>

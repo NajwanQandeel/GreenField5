@@ -1,9 +1,30 @@
 .test{
     height:142vh;
     background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
+     background-size: cover; 
+    object-position: 50% 50%;
+    position: relative;
+    
+}
+
+.test1{
+
+    background-image:url('https://www.orbisrealty.com/wp-content/uploads/2019/07/o-TOURIST-facebook.jpg');
     background-size: cover;
     object-position: 50% 50%;
+}
 
+#button{
+
+    border-radius: 10px;
+    border-color:#2D1214;
+  
+}
+
+#loginbut{
+    margin-left:100px;
+    background-color: #2D1214;
+    border-radius: 10px;
 }
 
 html, body {
@@ -11,10 +32,47 @@ html, body {
     height:100%;
 }
 
+.form1 #signintitle{
+    color:#2D1214;
+}
+
+
+.form1 .form-control{
+    border-radius: 10px;
+    border-color:#2D1214;
+    width: 300px;
+    position: relative;
+    left: 80px;
+}
+#form3{
+    border-radius: 10px;
+    border-color:#2D1214;
+    width: 300px;
+    position: relative;
+    left: 80px;
+
+}
+#form4{
+    border-radius: 10px;
+    border-color:#2D1214;
+    width: 300px;
+    position: relative;
+    left: 80px; 
+}
 #signup,#signin{
     background-color: rgba(255, 255, 255, 0.603);
     height:142vh;
 }
+
+.form-check-label{
+    margin-left: 115px;
+}
+#exampleCheck1{
+    margin-left: 90px;
+}
+/* .form-check-input{
+
+} */
  
 .inputhover:hover{
 
@@ -23,8 +81,10 @@ html, body {
 }
 
 #LoginupSwitch:hover {
-    color : rgb(20, 20, 133) !important;
+    color : rgba(82, 10, 41, 0.377) !important;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 10px;
 }  
  
 form{

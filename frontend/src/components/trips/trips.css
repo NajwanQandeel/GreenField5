@@ -3,15 +3,19 @@
 }
 
 body{
-    background-color: white;
+    background-color:white;
 }
 
 .inlinediv{
     display: inline-block;
 }
+.inlinediv2{
+    display: inline-block;   
+}
 #details{
     background-color: coral;
 }
+
 .tripimgs{
     object-fit: cover;
     object-position: 50% 50%;
@@ -33,6 +37,7 @@ body{
     background-color:rgb(97, 24, 56) !important ;
     width: 16vw;
     height: 4vw;
+    border-radius: 10px;
     font-size: 1.8vw;
 }
 

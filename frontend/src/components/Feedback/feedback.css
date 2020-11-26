@@ -4,6 +4,7 @@ position: relative;
 bottom: 340px;
 left:60%;
 width: 500px;
+height: 600px;
 
 }
 
@@ -11,5 +12,9 @@ width: 500px;
     background-color: hotpink;
     width: 500px;
     height: 100px;
+    
 }
 
+#text{
+    color: black;
+}

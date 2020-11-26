@@ -8,6 +8,7 @@ class Feedback extends React.Component {
         super(props);
         this.state = {
             feedbackArr: '',
+            // userName:''
             // tripId: ''
         };
 
@@ -30,59 +31,70 @@ class Feedback extends React.Component {
 
     componentDidMount = () => {
         const tripId = this.props.id1
-        console.log("mytrip",tripId)
+       
+        console.log("mytrip", tripId)
         this.setState({ tripId })
+        // this.setState({this.state.feedbackArr})
         this.getFeedBack();
     }
     getFeedBack = () => {
         var array = [];
         const tripId = this.props.id1
-// console.log(this.props.id)
+        console.log("the iddddddd", this.props.id1)
         // var feedbackArr = this.props.tripId.feedback
-        axios.post('/FindAllFeedByIdOfTrip',{
-            
-            params: {
-                ID: tripId
-              }
-        
-          })
+        axios.post('/FindAllFeedByIdOfTrip', {
+
+            // params: {
+            //     ID: tripId
+            //   }
+
+        })
             .then((response) => {
                 const data = response.data;
                 array = data;
-                var feedbackArr=array;
+                var feedbackArr = array;
                 this.setState({ feedbackArr: data })
-                console.log("here",this.state.feedbackArr)
-                console.log('data recivied',data);
+                console.log("here", this.state.feedbackArr)
+                // console.log('data recivied',data);
             })
             .catch(() => {
                 alert("error reciving");
             })
     }
-    displayFeedBack = (feedbackArr) => {
-        console.log("element zero",feedbackArr.feeds)
-        let result =feedbackArr.feeds
-   console.log("najwan",result[0])
-        if (!feedbackArr.length) return null;
-     return   feedbackArr.map((feed, index) => {
-        
-            <div key={index}>
-                <h3>{feedbackArr.userName}</h3>
-                <p>{feedbackArr.feedback}</p>
-            </div>
-        })
-    };
+    // displayFeedBack = () => {
 
+    //     return this.state.feedbackArr.feeds.map((feed, index) => {
 
+    //         <div key={index}>
+    //             <h3>{feed.userName}</h3>
+    //             <p>{feed.feedback}</p>
+    //         </div>
+    //     })
+    // };
 
 
     render() {
-        console.log(this.props.tripId)
-        const { feedbackArr } = this.state
+        if (!this.state.feedbackArr) {
+            return <span>Loading...</span>;
+        }
+        // console.log(this.props.tripId)
+
         return (
             <div id="root1">
-                <h3 >All Feedback For This Trip</h3>
+               
+               <h3 >All Feedback For This Trip</h3>
                 <div className="user-details" id="show">
-                 {this.displayFeedBack(this.state.feedbackArr)}
+                
+                  
+                   { this.state.feedbackArr.feeds.map((feed, index) => {
+                        //  {  console.log("nnn",this.state.feedbackArr.feeds[0])}
+                        {console.log("username",feed.userName)}
+                       <div> qqqqqqqqqqqqqqqqqq</div>
+                            //  <h3 id="text"> helllllo</h3>
+                            // <p>{feed.feedback}</p>
+                           
+                        
+                    })} 
 
                 </div>
             </div>

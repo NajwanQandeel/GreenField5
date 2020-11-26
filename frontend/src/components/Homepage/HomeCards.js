@@ -17,7 +17,7 @@ class Cards extends React.Component {
         
         return (
             <div className='cards'>
-                <h1>New Featured Trips</h1>
+                <h1 id="title">New Featured Trips</h1>
                 <div className='cards__container'>
                     <div className="cards__wrapper">
                         <ul className="cards__items">

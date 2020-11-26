@@ -1,20 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 .qoute {
-  font-family: 'Dancing Script', cursive;
+  font: 25px 'Ravi Prakash', cursive ;
   color:#2D1214;
+  font-weight: bold;
 }
 
 /* ////////////////////////////////////////////////// */
 /* Footer.css */
 .footer-container {
   /* background-color: #242424; */
-  background-color:rgb(97, 24, 56);;
+  background-color:rgb(97, 24, 56);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: 70%;
   
+}
+#exampleCheck1{
+  margin-left: 85px;
+}
+#button{
+  margin-left: 95px;
+  background-color:rgb(97, 24, 56) ;
 }
 
 .center{
@@ -195,6 +203,11 @@
 
 h1,h3 {
   text-align: center;
+  
+}
+.cards #title{
+   color:#2D1214;
+  font-weight: bold;
 }
 
 .cards__container {
@@ -209,17 +222,25 @@ h1,h3 {
 .cards__wrapper {
   position: relative;
   margin: 50px 0 45px;
+  /* background-color: chocolate; */
 }
 
 .cards__items {
   margin-bottom: 24px;
+  /* background-color: chartreuse; */
+  width: 900px;
+  
 }
+
 
 .cards__item {
   display: flex;
   flex: 1;
   margin: 0 2.5rem;
   border-radius: 10px;
+  color:#2D1214;
+  background-color:red;
+  width: 150px;
 }
 
 .cards__item__link {
@@ -246,11 +267,10 @@ h1,h3 {
   animation-duration: 2s;
 }
 
-.cards__item__pic-wrap::after {
+/* .cards__item__pic-wrap::after {
   content: attr(data-category);
   position: absolute;
-  bottom: 0;
-  margin-left: 10px;
+  margin-left: 50px;
   padding: 6px 8px;
   max-width: calc((100%) - 60px);
   font-size: 12px;
@@ -258,7 +278,7 @@ h1,h3 {
   color: #fff;
   background-color: #1f98f4;
   box-sizing: border-box;
-}
+} */
 
 .cards__item__img {
   position: absolute;
@@ -281,15 +301,21 @@ h1,h3 {
 
 .cards__item__info {
   padding: 20px 30px 30px;
-  Text-decoration: None !important
+  Text-decoration: None !important;
+
 }
 
 .cards__item__text {
-  color: #252e48;
-  font-size: 14px;
+  color:rgb(97, 24, 56);
+  font-size: 16px;
   text-align: center;
   line-height: 24px;
-  Text-decoration: None !important
+  Text-decoration: None !important;
+  font-weight: bold;
+  
+  
+
+ 
 }
 
 @media only screen and (min-width: 1200px) {
@@ -335,15 +361,15 @@ video {
   }
   
   .section-container > h1 {
-    color: #fff;
-    font-size: 100px;
+    color:black;
+    font-size: 70px;
     margin-top: -100px;
   }
   
   .section-container > p {
     margin-top: 8px;
-    color: #fff;
-    font-size: 32px;
+    color:black;  
+      font-size: 32px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
   }
@@ -409,6 +435,13 @@ video {
       height: 80px;
       max-width: 1500px;
     }
+    .navbar-container h3 {
+      font: 30px 'Ravi Prakash', cursive ;
+      font-weight: bold;
+      position: relative;
+      right: 100px;
+      bottom: 5px;
+    }
     
     .navbar-logo {
       color: #fff;
@@ -422,7 +455,6 @@ video {
       text-decoration: none !important;
     }
     .navbar-logo :hover {
-      color: rgb(236, 219, 219);
       text-decoration: none !important;
     }
     
@@ -453,10 +485,12 @@ video {
       text-decoration: none;
       padding: 0.5rem 1rem;
       height: 100%;
+      font-weight: bold;
+      font-size: 20px;
     }
     
     .nav-links:hover {
-      border-bottom: 4px solid #FDEDF4;
+      border-bottom: 4px solid gray;
       transition: all 0.2s ease-out;
       text-decoration: none ;
       color: #FDEDF4;
@@ -582,6 +616,7 @@ video {
     color: #fff;
     padding: 8px 20px;
     border: 1px solid var(--primary);
+    border-radius: 10px;
     transition: all 0.3s ease-out;
   }
   

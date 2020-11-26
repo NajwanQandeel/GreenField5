@@ -3,7 +3,7 @@ import './trips.css';
 import { Link } from 'react-router-dom';
 import Day from './days';
 import AddFeedBack from '../Feedback/addfeedback.js'
-import Feedback from '../Feedback/feedback.js'
+import AllFeedback from '../Feedback/feedback.js'
 
 class Trip extends React.Component {
 
@@ -50,7 +50,7 @@ class Trip extends React.Component {
        
         return (
             <div >
-                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px' }}>
+                <div className="d-flex flex-wrap justify-content-around" style={{ 'textAlign': 'center', 'marginTop': '20px'}}>
                     <div>
                         <img className='imgs' src='https://www.flaticon.com/svg/static/icons/svg/2945/2945620.svg' alt='Trip Map'></img>
                         <p>{this.state.thetrip.name}</p>
@@ -87,7 +87,7 @@ class Trip extends React.Component {
                             dayinfo: this.state.thetrip.discription[value],
                             imgs: this.state.thetrip.image[parseInt(value) - 1]
                         }
-                        return (<div><Day {...props}></Day>
+                        return (<div id="day"><Day {...props}></Day>
                             <br></br></div>)
                     }
                     )}
@@ -122,7 +122,7 @@ class Trip extends React.Component {
                         <AddFeedBack id={this.props.location.state.trip._id}/>
                     </div>
                     <div>
-                        <Feedback id1={this.props.location.state.trip._id}/>
+                        <AllFeedback id={this.props.location.state.trip._id}/>
                     </div>
                 <br></br>
                 <div className="bookx">
