@@ -73,7 +73,7 @@ class Profile extends React.Component {
 
     }
     else {
-      cards = <div>No Booked Trips Yet</div>
+      cards = <div id='booked' >No Booked Trips Yet</div>
     }
     return (
       <div className="imgdiv">
@@ -118,7 +118,7 @@ class Profile extends React.Component {
                 {cards}
                 <br></br>
                 <div id='favoriteTrips' >
-                  <FavoriteList userId={this.props.userid}/>
+                  <FavoriteList userId={this.props.userid} />
                 </div>
               </div>
             </div>

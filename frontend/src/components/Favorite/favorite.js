@@ -23,7 +23,7 @@ function Favorite(props) {
         // tripName:props.tripName,
         // tripImage:props.tripImage[0][0]
     }
-    console.log("hello",props)
+    console.log("hello", props)
     useEffect(() => {
 
         // console.log(this.variables)
@@ -75,7 +75,7 @@ function Favorite(props) {
                 <StarsIcon onClick={onClickFavorite} style={{"color":"red"}} />
                 {/* {Favorited ? style={"color":"red"}:style={"color":"blue"}} */}
             
-            <button onClick={onClickFavorite}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
+            <button onClick={onClickFavorite} id={'add'}>{Favorited ? " remove from Favortie " : " Add to Favorite"}</button>
         </div>
     )
 }
